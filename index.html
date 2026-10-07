@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Code444 — Software studio, Port Macquarie</title>
+  <meta name="description" content="Code444 is an independent software studio in Port Macquarie building apps that fix the everyday problems people have learned to live with.">
+  <meta name="theme-color" content="#6B4FD3">
+  <meta property="og:title" content="Code444">
+  <meta property="og:description" content="An independent software studio in Port Macquarie building apps for the problems people have learned to live with.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code444.com.au/">
+  <link rel="canonical" href="https://code444.com.au/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236B4FD3'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial,sans-serif' font-size='34' font-weight='900' text-anchor='middle' fill='%23F5F3FA'%3E4%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #F5F3FA;
+      --ink: #1C1730;
+      --jacaranda: #6B4FD3;
+      --bloom: #B9A9F0;
+      --muted: #5E5874;
+      --line: #DCD6EC;
+
+      --display: "Anybody", "Arial Narrow", system-ui, sans-serif;
+      --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+      --gutter: clamp(1.25rem, 5vw, 4rem);
+      --measure: 34rem;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #15121F;
+        --ink: #EEEAF8;
+        --jacaranda: #A48CF5;
+        --bloom: #5A47A8;
+        --muted: #A39DB8;
+        --line: #2E2842;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    a { color: inherit; text-decoration-color: var(--jacaranda); text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
+    a:hover { color: var(--jacaranda); }
+    :focus-visible { outline: 3px solid var(--jacaranda); outline-offset: 4px; border-radius: 2px; }
+
+    .wrap { max-width: 78rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* Top bar */
+    .top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-top: clamp(1.25rem, 3vw, 2rem);
+      font-size: 0.9375rem; color: var(--muted);
+    }
+    .top .mark { font-family: var(--display); font-weight: 700; font-size: 1.125rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+
+    /* Hero */
+    .hero { padding: clamp(3rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem); }
+    .hero h1 { margin: 0; font-weight: 400; }
+    .hero .word {
+      display: block;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-left: 0.1em;
+    }
+    .hero .num {
+      display: block;
+      font-family: var(--display);
+      font-weight: 850;
+      font-size: clamp(4rem, 28vw, 25rem);
+      line-height: 0.78;
+      letter-spacing: -0.04em;
+      color: var(--jacaranda);
+      font-variation-settings: "wdth" 150;
+      margin-left: -0.04em;
+      animation: open 1.6s cubic-bezier(.2,.7,.1,1) 0.15s both;
+    }
+    @keyframes open {
+      from { font-variation-settings: "wdth" 50; opacity: 0.25; }
+      to   { font-variation-settings: "wdth" 150; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero .num { animation: none; } }
+
+    .hero .lede {
+      display: grid; gap: 1.5rem 4rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: end;
+      margin-top: clamp(2rem, 5vw, 3.5rem);
+    }
+    .hero .statement {
+      font-family: var(--display);
+      font-weight: 500;
+      font-variation-settings: "wdth" 85;
+      font-size: clamp(1.75rem, 3.6vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      margin: 0;
+      max-width: 20ch;
+    }
+    .hero .intro { margin: 0; max-width: var(--measure); color: var(--muted); }
+    .hero .intro strong { color: var(--ink); font-weight: 600; }
+
+    /* Sections */
+    section.block {
+      border-top: 1px solid var(--line);
+      padding: clamp(3rem, 7vw, 5rem) 0;
+      display: grid; gap: 2rem 4rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+    }
+    section.block h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 700;
+      font-variation-settings: "wdth" 110;
+      font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .principles { margin: 0; padding: 0; list-style: none; display: grid; gap: 2.25rem; }
+    .principles li { display: grid; gap: 0.35rem; max-width: 40rem; }
+    .principles h3 {
+      margin: 0; font-family: var(--body); font-weight: 600; font-size: 1.1875rem; line-height: 1.35;
+    }
+    .principles p { margin: 0; color: var(--muted); }
+
+    .next p { margin: 0 0 1rem; max-width: 40rem; }
+    .next p:last-child { margin-bottom: 0; }
+    .next .quiet { color: var(--muted); }
+
+    /* Contact */
+    .contact {
+      border-top: 1px solid var(--line);
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+    }
+    .contact p { margin: 0 0 1rem; color: var(--muted); max-width: var(--measure); }
+    .contact .email {
+      display: inline-block;
+      font-family: var(--display);
+      font-weight: 700;
+      font-variation-settings: "wdth" 95;
+      font-size: clamp(1.75rem, 5.2vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--bloom);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.12em;
+      overflow-wrap: anywhere;
+      transition: color .2s, text-decoration-color .2s;
+    }
+    .contact .email:hover { color: var(--jacaranda); text-decoration-color: var(--jacaranda); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 2.5rem;
+      font-size: 0.875rem; color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: 0.75rem 2.5rem; justify-content: space-between;
+    }
+    footer .legal { display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; }
+    footer .legal strong { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 760px) {
+      .hero .lede, section.block { grid-template-columns: 1fr; }
+      .hero .statement { max-width: 20ch; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="mark" href="/" aria-label="Code444 home">Code444</a>
+      <span>Port Macquarie, Australia</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <h1 id="title">
+          <span class="word">code</span>
+          <span class="num" aria-hidden="true">444</span>
+          <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Code444</span>
+        </h1>
+        <div class="lede">
+          <p class="statement">Software for the problems people have learned to live with.</p>
+          <p class="intro"><strong>Code444 is an independent software studio.</strong> We find the everyday frictions that cost people time, money and patience, and build focused apps that take them away.</p>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="how">
+        <h2 id="how">How we work</h2>
+        <ul class="principles">
+          <li>
+            <h3>Start with a real problem</h3>
+            <p>Every product begins with something that genuinely gets in people's way. We work out the smallest, clearest piece of software that fixes it, and build that well.</p>
+          </li>
+          <li>
+            <h3>Each product stands on its own</h3>
+            <p>What we make ships under its own name, with its own home. Code444 is the studio behind them, and the company you deal with.</p>
+          </li>
+          <li>
+            <h3>Reliable, private, built to last</h3>
+            <p>We come from product, infrastructure and engineering, so we care about the parts you don't see. Our apps collect only what they need to work, and your data stays yours.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block next" aria-labelledby="whatsnext">
+        <h2 id="whatsnext">What's next</h2>
+        <div>
+          <p>Our first apps are in testing now, for iPhone and the web. As each one launches, you'll find it here.</p>
+          <p class="quiet">Have a problem you think software should have solved by now? We'd like to hear about it.</p>
+        </div>
+      </section>
+
+      <section class="contact" aria-labelledby="contact">
+        <h2 id="contact" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Contact</h2>
+        <p>For partnerships, support or anything else, email us.</p>
+        <a class="email" href="mailto:hello@code444.com.au">hello@code444.com.au</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="legal">
+        <strong>CODE444 PTY LTD</strong>
+        <!-- Replace with your real ABN before publishing -->
+        <span>ABN 93 701 683 365</span>
+        <span>Port Macquarie, New South Wales, Australia</span>
+      </div>
+      <div class="legal">
+        <a href="/privacy.html">Privacy</a>
+        <span>&copy; <span id="yr">2026</span> Code444</span>
+      </div>
+    </footer>
+  </div>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
